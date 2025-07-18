@@ -1,30 +1,79 @@
-# LangGraph Contract Builder
+# ContractIQ Builder
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+ContractIQ Builder is an AI-powered contract review and risk analysis system built with Next.js, React, and LangGraph. It enables users to upload legal contracts (PDF or DOCX), automatically extracts and analyzes clauses, assesses risks, and generates comprehensive analysis reports.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/abdull6771s-projects/v0-lang-graph-contract-builder)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/IrAMcrbrxEj)
+## Features
 
-## Overview
+- **Contract Upload:** Upload PDF or DOCX contracts for automated analysis.
+- **Clause Extraction:** AI-driven extraction and classification of contract clauses.
+- **Risk Assessment:** Automated risk analysis for each clause and the overall contract.
+- **Key Terms Extraction:** Identification of key contract terms (parties, dates, payment terms, governing law, etc.).
+- **Comprehensive Reports:** Downloadable, professional analysis reports in PDF format.
+- **User Dashboard:** View analysis results, risk summaries, and recommendations for all uploaded contracts.
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## Technology Stack
 
-## Deployment
+- **Frontend:** Next.js, React, Tailwind CSS, Radix UI
+- **AI/Workflow:** LangGraph, LangChain, OpenAI GPT-4o
+- **Document Parsing:** pdf-parse, mammoth
+- **PDF Generation:** (Planned) Integration with HTML-to-PDF libraries
 
-Your project is live at:
+## Getting Started
 
-**[https://vercel.com/abdull6771s-projects/v0-lang-graph-contract-builder](https://vercel.com/abdull6771s-projects/v0-lang-graph-contract-builder)**
+### Prerequisites
+- Node.js 18+
+- pnpm (recommended) or npm/yarn
 
-## Build your app
+### Installation
 
-Continue building your app on:
+```bash
+pnpm install
+# or
+npm install
+```
 
-**[https://v0.dev/chat/projects/IrAMcrbrxEj](https://v0.dev/chat/projects/IrAMcrbrxEj)**
+### Development
 
-## How It Works
+```bash
+pnpm dev
+# or
+npm run dev
+```
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+### Build for Production
+
+```bash
+pnpm build
+# or
+npm run build
+```
+
+## Usage
+
+1. Open the app in your browser.
+2. Upload a contract file (PDF or DOCX).
+3. Wait for the AI-powered analysis to complete.
+4. View extracted clauses, risk assessments, and key terms.
+5. Download a comprehensive analysis report as a PDF.
+
+## API Endpoints
+
+### POST `/api/analyze-contract`
+- **Description:** Analyze an uploaded contract.
+- **Request:** `multipart/form-data` with a `contract` file (PDF or DOCX).
+- **Response:** JSON with analysis results, including extracted clauses, risk summary, and key terms.
+
+### GET `/api/generate-report/[id]`
+- **Description:** Download a PDF analysis report for a contract (mock data in current implementation).
+- **Response:** PDF file.
+
+## Project Structure
+
+- `app/` – Next.js app directory (pages, API routes, layout)
+- `components/` – Reusable React components (UI, analysis results, upload, etc.)
+- `lib/langgraph/` – AI workflow and agents (document processing, clause extraction, risk analysis, report generation)
+- `styles/` & `app/globals.css` – Tailwind CSS and global styles
+
+## License
+
+This project is licensed under the MIT License.
